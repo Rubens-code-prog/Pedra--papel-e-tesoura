@@ -21,6 +21,7 @@ def jogo():
             else:
                 lance_computador_lance = lance_computador()
                 confronto(lance_jogador, lance_computador_lance)
+                mostrar_jogada(lance_jogador, lance_computador_lance)
                 while True:
                     try:
                         recomeço = int(input('Jogar novamente? 0 - SIM / 1 - NÃO'))
@@ -51,7 +52,7 @@ def confronto(lance_jogador: int, lance_computador: int):
 
 def mostrar_jogada(lance_jogador, lance_computador):
     print((f'----------\nSua jogada: {lances[lance_jogador]}\Jogada do computador: {lances[lance_computador]}\n\
-           {resultados[confronto()]}\n-----------'))
+           {resultados[confronto(lance_jogador, lance_computador)]}\n-----------'))
 
 def lance_computador():
     return random.choice(lances.keys)
